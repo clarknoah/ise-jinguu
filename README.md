@@ -35,6 +35,8 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 
 1. Create App
 > `ng new ise-jingu`
+1. Import bootstrap reflect-metadata font-awesome
+> `npm install --save bootstrap font-awesome reflect-metadata`
 2. Remove `app` prefix from `angular-cli.json`
 2. Create Factory Service
 > `ng generate service service/factory`
@@ -53,8 +55,9 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 9. Create LoginComponent
 > `ng generate component login`
 9. Inject AuthService into LoginComponent
+10. Create `login()` and `logout()` functions for LoginComponent
 10. Create PopUp Directive
-10. Create Content-Projection Component 
+10. Create Content-Projection Component
 10. Create DirectivesComponent
 > `ng generate component directives`
 11. Create FormControlComponent

@@ -1,19 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
+
+  message: string;
 
   constructor(public authService: AuthService) {
+    this.message='';
+  }
 
-  }
   login(username: string, password: string): boolean{
-    if(!this)
+    this.message = '';
+    if(!this.authService.login(username,password)){
+      this.message = 'Incorrect Credentials';
+      setTimeout(function(){
+        this.message='';
+      }.bind(this),2500);
+    }
+    return false;
   }
-  ngOnInit() {
+
+  logout(): boolean {
+    this.authService.logout();
+    return false;
   }
 
 }

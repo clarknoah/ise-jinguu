@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 //services
 import {FactoryService} from './service/factory.service';
 import {SingletonService} from './service/singleton.service';
-import {ISE_JINGU_TEST_VARIABLE} from './service/variable.service';
+import {ISE_JINGU_TEST_VARIABLE} from './service/variables.service';
 import { AuthService } from './service/auth.service';
 import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -26,10 +27,10 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     AuthService,
-    {
-      provide: FactoryService,
-      useFactory: () => {return new FactoryService()}
-    },
+//    {
+//      provide: FactoryService,
+//      useFactory: getFactoryService()
+//    },
     SingletonService,
     {
       provide: ISE_JINGU_TEST_VARIABLE,
