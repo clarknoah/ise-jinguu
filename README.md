@@ -33,53 +33,67 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 
 ## Current Checklist (CAO 14Nov17)
 
-1. Create App
+1. generate App
 > `ng new ise-jingu`
 1. Import bootstrap reflect-metadata font-awesome
 > `npm install --save bootstrap font-awesome reflect-metadata`
 2. Remove `app` prefix from `angular-cli.json`
-2. Create Factory Service
+2. generate Factory Service
 > `ng generate service service/factory`
 3. Program service and create function that accepts an array, appends it, and stores it.
 3. Inject factory into `app.module`
-3. Create Singleton Service
+3. generate Singleton Service
 > `ng generate service service/singleton`
 4. Program service and create a funciton that accepts an array and appends it, and stores it.
 5. import and Inject singleton into `app.module`
-6. Create variableService that contains a single string value
+5. Create export function for `useFactory` key
+```javascript
+export function loadFactory(){
+    return new FactoryService();
+}
+import = {
+    provide: FactoryService,
+    useFactory: loadFactory
+};
+```
+6. generate variableService that contains a single string value
 7. import and Inject variableService into `app.module`
-8. Create AuthService
+8. generate AuthService
 > `ng generate service service/auth`
 9. Add function for login, logout, getUser, and isLoggedIn(boolean)
 9. import and Inject AuthService into `app.module`
-9. Create LoginComponent
+9. generate LoginComponent
 > `ng generate component login`
 9. Inject AuthService into LoginComponent
 10. Create `login()` and `logout()` functions for LoginComponent
-10. Create PopUp Directive
-10. Create Content-Projection Component
-10. Create DirectivesComponent
+10. generate PopUp Directive
+> `ng generate directive popup`
+10. generate Content-Projection Component
+> `ng generate component content-projection`
+10. generate DirectivesComponent
 > `ng generate component directives`
-11. Create FormControlComponent
+11. generate FormControlComponent
 > `ng generate component form-control`
-12. Create FormBuilderComponent
+12. generate FormBuilderComponent
 > `ng generate component form-builder`
-13. Create FormTwoWayBindingComponent
+13. generate FormTwoWayBindingComponent
 > `ng generate component form-two-way-binding`
-14. Create CustomValidationComponent
+14. generate CustomValidationComponent
 > `ng generate component custom-validation`
-15. Create DependencyInjectionComponent
+15. generate DependencyInjectionComponent
 > `ng generate component dependency-injection`
-16. Create ParamRoutingComponent
+16. generate ParamRoutingComponent
 > `ng generate component param-routing`
-17. Create InputOutputComponent
+17. generate InputOutputComponent
 > `ng generate component input-output`
-17. Create HttpComponent
+17. generate HttpComponent
 > `ng generate component http`
-17. Create LifecycleComponent
+17. generate LifecycleComponent
 > `ng generate component lifecycle`
-18. Create MiscComponent
-> `ng generate component MiscComponent`
+18. generate MiscComponent
+> `ng generate component misc`
+18. generate ise-jingu (home) Component
+> `ng generate component ise-jingu`
 19. Import RouterModule,Routes
 ```javascript
 import {
