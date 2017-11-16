@@ -36,7 +36,19 @@ export function loadFactory(){
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: IseJinguComponent}
+  {path: 'home', component: IseJinguComponent},
+  {path: 'content_projection', component: ContentProjectionComponent},
+  {path: 'directives', component: DirectivesComponent},
+  {path: 'form-control', component: FormControlComponent},
+  {path: 'form-builder', component: FormBuilderComponent},
+  {path: 'form-two-way-binding', component: FormTwoWayBindingComponent},
+  {path: 'custom_validation', component: CustomValidationComponent},
+  {path: 'dependency_injection', component: DependencyInjectionComponent},
+  {path: 'param_routing', component: ParamRoutingComponent},
+  {path: 'input_output', component: InputOutputComponent},
+  {path: 'http', component: HttpComponent},
+  {path: 'lifecycle', component: LifecycleComponent},
+  {path: 'misc', component: MiscComponent},
 ];
 
 @NgModule({
@@ -62,7 +74,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AuthService,

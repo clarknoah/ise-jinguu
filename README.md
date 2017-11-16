@@ -36,7 +36,7 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 1. generate App
 > `ng new ise-jingu`
 1. Import bootstrap reflect-metadata font-awesome
-> `npm install --save bootstrap font-awesome reflect-metadata`
+> `npm install --save zone reflect-metadata font-awesome bootstrap@4.0.0-beta.2 jquery@1.9.1 popper.js@^1.12.3`
 2. Remove `app` prefix from `angular-cli.json`
 2. generate Factory Service
 > `ng generate service service/factory`
@@ -103,19 +103,21 @@ import {
 ```
 20. Create routes: Routes in app.module
 ```javascript
-cost routes: Routes = [
+const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: DirectivesComponent},
-  {path: 'directives', component:DirectivesComponent},
-  {path: 'form_control', component:FormControlDirective},
-  {path: 'form_builder', component:FormBuilderComponent },
-  {path: 'form_two_way_binding', component:FormTwoWayBindingComponent },
-  {path: 'custom_validation', component:CustomValidationComponent },
-  {path: 'dependency_injection', component:DependencyInjection },
-  {path: 'param_routing', component:ParamRoutingComponent },
-  {path: 'input_output', component:InputOutputComponent },
+  {path: 'home', component: IseJinguComponent},
+  {path: 'content_projection', component: ContentProjectionComponent},
+  {path: 'directives', component: DirectivesComponent},
+  {path: 'form-control', component: FormControlComponent},
+  {path: 'form-builder', component: FormBuilderComponent},
+  {path: 'form-two-way-binding', component: FormTwoWayBindingComponent},
+  {path: 'custom_validation', component: CustomValidationComponent},
+  {path: 'dependency_injection', component: DependencyInjectionComponent},
+  {path: 'param_routing', component: ParamRoutingComponent},
+  {path: 'input_output', component: InputOutputComponent},
   {path: 'http', component: HttpComponent},
-  {path: 'misc', component:MiscComponent }
+  {path: 'lifecycle', component: LifecycleComponent},
+  {path: 'misc', component: MiscComponent},
 ];
 ```
 21. Inject `RouterModule.forRoot(routes)` into imports
@@ -135,14 +137,18 @@ constructor(private router: Router) {
 ```
 24. Add `routerLink` into `app.component.html`
 ```html
-<a [routerLink]="['/directives']">Directives</a>
-<a [routerLink]="['/form_control']">Form Control</a>
-<a [routerLink]="['/form_builder']">Form Builder</a>
-<a [routerLink]="['/form_two_way_binding']">Two-Way Binding</a>
-<a [routerLink]="['/custom_validation']">Custom Validation</a>
-<a [routerLink]="['/dependency_injection']">Dependency Injection</a>
-<a [routerLink]="['/param_routing']">Param Routing</a>
-<a [routerLink]="['/input_output']">Input Output Testing</a>
-<a [routerLink]="['/http']">Input Output Testing</a>
-<a [routerLink]="['/Misc']">Misc</a>
+<li class="list-group-item"><a [routerLink]="['/directives']">Directives</a></li>
+<li class="list-group-item"><a [routerLink]="['/content_projection']">Content-Projection</a></li>
+<li class="list-group-item"><a [routerLink]="['/form-control']">Form Control</a></li>
+<li class="list-group-item"><a [routerLink]="['/form-builder']">Form: Builder</a></li>
+<li class="list-group-item"><a [routerLink]="['/form-two-way-binding']">Form: Two Way Binding</a></li>
+<li class="list-group-item"><a [routerLink]="['/custom_validation']">Custom Validation</a></li>
+<li class="list-group-item"><a [routerLink]="['/dependency_injection']">Dependency Injection</a></li>
+<li class="list-group-item"><a [routerLink]="['/param_routing']">Param Routing</a></li>
+<li class="list-group-item"><a [routerLink]="['/input_output']">Input-Output</a></li>
+<li class="list-group-item"><a [routerLink]="['/http']">HTTP</a></li>
+<li class="list-group-item"><a [routerLink]="['/lifecycle']">Lifecycle</a></li>
+<li class="list-group-item"><a [routerLink]="['/misc']">Misc</a></li>
 ```
+25. Add Router-Outlet to `app.component.html`
+26. 
