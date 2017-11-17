@@ -15,6 +15,7 @@ export class LoginComponent{
 
   login(username: string, password: string): boolean{
     this.message = '';
+    console.log(`User succesfully logged in: ${this.authService.login(username,password)}`);
     if(!this.authService.login(username,password)){
       this.message = 'Incorrect Credentials';
       setTimeout(function(){

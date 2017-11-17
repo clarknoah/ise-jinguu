@@ -60,12 +60,11 @@ import = {
 7. import and Inject variableService into `app.module`
 8. generate AuthService
 > `ng generate service service/auth`
+9. Add constructor to auth service to remove localStorage user (if there)
 9. Add function for login, logout, getUser, and isLoggedIn(boolean)
 9. import and Inject AuthService into `app.module`
 9. generate LoginComponent
 > `ng generate component login`
-9. Inject AuthService into LoginComponent
-10. Create `login()` and `logout()` functions for LoginComponent
 10. generate PopUp Directive
 > `ng generate directive popup`
 10. generate Content-Projection Component
@@ -94,6 +93,39 @@ import = {
 > `ng generate component misc`
 18. generate ise-jingu (home) Component
 > `ng generate component ise-jingu`
+19. Create routing Guard
+> `ng generate module logged-in`
+19. Import files and create canActive function in `logged-in.module.ts`
+```javascript
+/* tslint:disble max-line-length */
+import { Injectable } from '@angular/core';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../service/auth.service';
+
+@Injectable()
+export class LoggedInGuard implements CanActivate {
+  constructor(private authService: AuthService) {}
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+      const isLoggedIn = this.authService.isLoggedIn();
+      console.log('canActivate', isLoggedIn);
+      return isLoggedIn;
+  }
+}
+```
+19. Import `logged-in` module into `app.module.ts`
+```javascript
+import { LoggedInGuard } from './logged-in/logged-in.module';
+```
+19. Add Guard to one of the routes in `app.module.ts`
+19. Inject `LoggedInGuard` into `app.module` `providers`
 19. Import RouterModule,Routes
 ```javascript
 import {
@@ -107,7 +139,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: IseJinguComponent},
   {path: 'content_projection', component: ContentProjectionComponent},
-  {path: 'directives', component: DirectivesComponent},
+  {path: 'directives', component: DirectivesComponent, canActivate: {LoggedInGuard}},
   {path: 'form-control', component: FormControlComponent},
   {path: 'form-builder', component: FormBuilderComponent},
   {path: 'form-two-way-binding', component: FormTwoWayBindingComponent},
@@ -135,6 +167,9 @@ constructor(private router: Router) {
 constructor(private router: Router) {
 };
 ```
+24. Inject AuthService into LoginComponent
+24. Create `login()` and `logout()` functions for LoginComponent
+24. Create Navbar in `app.component.html which includes routerLink to home`
 24. Add `routerLink` into `app.component.html`
 ```html
 <li class="list-group-item"><a [routerLink]="['/directives']">Directives</a></li>
@@ -151,4 +186,4 @@ constructor(private router: Router) {
 <li class="list-group-item"><a [routerLink]="['/misc']">Misc</a></li>
 ```
 25. Add Router-Outlet to `app.component.html`
-26. 
+26.

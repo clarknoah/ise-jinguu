@@ -27,7 +27,7 @@ import {SingletonService} from './service/singleton.service';
 import {ISE_JINGU_TEST_VARIABLE} from './service/variables.service';
 import { AuthService } from './service/auth.service';
 import { LoginComponent } from './login/login.component';
-
+import { LoggedInGuard } from './logged-in/logged-in.module';
 
 
 export function loadFactory(){
@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: IseJinguComponent},
   {path: 'content_projection', component: ContentProjectionComponent},
-  {path: 'directives', component: DirectivesComponent},
+  {path: 'directives', component: DirectivesComponent, canActivate: [LoggedInGuard]},
   {path: 'form-control', component: FormControlComponent},
   {path: 'form-builder', component: FormBuilderComponent},
   {path: 'form-two-way-binding', component: FormTwoWayBindingComponent},
@@ -78,6 +78,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
+    LoggedInGuard,
     AuthService,
     {
       provide: FactoryService,
