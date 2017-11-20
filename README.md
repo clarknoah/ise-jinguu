@@ -186,4 +186,10 @@ constructor(private router: Router) {
 <li class="list-group-item"><a [routerLink]="['/misc']">Misc</a></li>
 ```
 25. Add Router-Outlet to `app.component.html`
-26.
+26. Utilize `*ngIf` in DirectivesComponent
+27. Utilize `*ngFor` in DirectivesComponent
+28. Utilize `*ngSwitch` in DirectivesComponent
+29. Utilize `ngStyle` in DirectivesComponent
+30. Utilize `[style]` in DirectivesComponent
+31. Utilize `ngClass` in DirectivesComponent
+32. Utilize `ngNonBindable` in DirectivesComponent

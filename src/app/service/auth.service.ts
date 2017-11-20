@@ -5,7 +5,7 @@ export class AuthService {
 
   constructor(){
     if(localStorage.getItem('username')){
-    this.logout();
+    //this.logout();
     }
   }
 

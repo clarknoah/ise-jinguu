@@ -1,3 +1,68 @@
-<p>
-  directives works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">*ngIf</h4>
+    <button class="btn btn-primary" (click)="ngIf_boolean = !ngIf_boolean">Toggle Element</button>
+    <span class="badge badge-secondary" *ngIf="ngIf_boolean">*ngIf Works!</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">*ngFor</h4>
+    <button class="btn btn-primary" (click)="ngFor_array.push('New Name')">Add Name</button>
+    <p *ngFor="let name of ngFor_array; let ind = index">{{name}}'s index: {{ind}}</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">*ngSwitch</h4>
+    <button (click)="ngSwitch_var='A'" type="button" class="btn btn-primary btn-sm">A</button>
+    <button (click)="ngSwitch_var='B'" type="button" class="btn btn-secondary btn-sm">B</button>
+    <button (click)="ngSwitch_var='C'" type="button" class="btn btn-primary btn-sm">C</button>
+    <div class="container" [ngSwitch]="ngSwitch_var">
+      <div class="row" *ngSwitchCase="'A'">
+        The A Value was selected!
+      </div>
+      <div class="row" *ngSwitchCase="'B'">
+        The B Value was selected!
+      </div>
+      <div class="row" *ngSwitchCase="'C'">
+        The C value was selected
+      </div>
+      <div class="row" *ngSwitchDefault>
+        This is the Default Value!
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">[style]</h4>
+    <button (click)="setSize('+')" class="btn btn-primary">+ Font</button>
+    <button (click)="setSize('-')"  class="btn btn-primary">- Font</button>
+    <p [style.font-size.px]="ngStyle_font">The Font Size<p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">ngStyle</h4>
+    <input type="text" [(ngModel)]="color">
+    <button class="btn btn-primary" (click)="setColor(color)" name="button">Change Color</button>
+    <p [ngStyle]="ngStyle_obj">The Font Size<p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">ngClass</h4>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">ngNonBindable</h4>
+  </div>
+</div>
