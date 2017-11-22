@@ -13,4 +13,9 @@ export class FormControlComponent implements OnInit {
   ngOnInit() {
   }
 
+  btnClick(form: any):void{
+    console.log(form);
+    console.log(`Button was clicked!`);
+  }
+
 }

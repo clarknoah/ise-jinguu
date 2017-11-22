@@ -1,11 +1,12 @@
-<form class="" action="index.html" method="post">
+<form #form="ngForm" class="" action="index.html" method="post">
   <div class="form-group">
      <label for="form_email">Email address</label>
      <input [(ngModel)]="form_email" name="form_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
    </div>
-     <button type="submit" class="btn btn-primary">Submit</button>
+     <button (click)="btnClick(form.form.controls.form_email._value)" class="btn btn-primary">Submit</button>
 </form>
+<button (click)="btnClick('Noah')" class="btn btn-primary">Submit</button>
 <div class="row">
   <p>{{form_email}}</p>
 </div>
