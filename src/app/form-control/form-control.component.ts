@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'form-control',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-control.component.css']
 })
 export class FormControlComponent implements OnInit {
-
+  form_email: string;
   constructor() { }
 
   ngOnInit() {

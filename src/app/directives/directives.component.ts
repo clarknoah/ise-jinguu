@@ -13,6 +13,7 @@ export class DirectivesComponent implements OnInit {
   colorVar: string;
   color: string;
   ngStyle_obj: any;
+  ngClass_obj: any;
 
   constructor() {
     this.ngIf_boolean = false;
@@ -27,7 +28,15 @@ export class DirectivesComponent implements OnInit {
     this.ngStyle_obj = {
       color: this.color
     };
-
+    this.ngClass_obj = {
+      'text-danger': false,
+      'bg-info': false,
+      'border': true,
+      'border-dark':false
+    };
+  }
+  setClass(key):void {
+    this.ngClass_obj[key] = !this.ngClass_obj[key];
   }
 
   setSize(operator): void {
