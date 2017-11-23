@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, AbstractControl, Validators } '@angular/forms';
 
 @Component({
   selector: 'custom-validation',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomValidationComponent implements OnInit {
 
-  constructor() { }
+  iseForm: FormGroup;
+  norm: AbstractControl;
+  cust: AbstractControl;
+  constructor(fb: FormBuilder) {
+    this.iseForm = fb.group({
+      normalValidation: ["", Validators.required],
+      customValidation:""
+    });
+    this.norm = this.iseForm.controls['normalValidation'];
+    this.cust = this.iseForm.controls['customValidation'];
+   }
 
   ngOnInit() {
+  }
+  onSubmit():void{
+
   }
 
 }

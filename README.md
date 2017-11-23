@@ -75,8 +75,6 @@ import = {
 > `ng generate component form-control`
 12. generate FormBuilderComponent
 > `ng generate component form-builder`
-13. generate FormTwoWayBindingComponent
-> `ng generate component form-two-way-binding`
 14. generate CustomValidationComponent
 > `ng generate component custom-validation`
 15. generate DependencyInjectionComponent
@@ -142,7 +140,6 @@ const routes: Routes = [
   {path: 'directives', component: DirectivesComponent, canActivate: {LoggedInGuard}},
   {path: 'form-control', component: FormControlComponent},
   {path: 'form-builder', component: FormBuilderComponent},
-  {path: 'form-two-way-binding', component: FormTwoWayBindingComponent},
   {path: 'custom_validation', component: CustomValidationComponent},
   {path: 'dependency_injection', component: DependencyInjectionComponent},
   {path: 'param_routing', component: ParamRoutingComponent},
@@ -176,7 +173,6 @@ constructor(private router: Router) {
 <li class="list-group-item"><a [routerLink]="['/content_projection']">Content-Projection</a></li>
 <li class="list-group-item"><a [routerLink]="['/form-control']">Form Control</a></li>
 <li class="list-group-item"><a [routerLink]="['/form-builder']">Form: Builder</a></li>
-<li class="list-group-item"><a [routerLink]="['/form-two-way-binding']">Form: Two Way Binding</a></li>
 <li class="list-group-item"><a [routerLink]="['/custom_validation']">Custom Validation</a></li>
 <li class="list-group-item"><a [routerLink]="['/dependency_injection']">Dependency Injection</a></li>
 <li class="list-group-item"><a [routerLink]="['/param_routing']">Param Routing</a></li>
@@ -193,3 +189,8 @@ constructor(private router: Router) {
 30. Utilize `[style]` in DirectivesComponent
 31. Utilize `ngClass` in DirectivesComponent
 32. Utilize `ngNonBindable` in DirectivesComponent
+32. Import `FormsModule` into FormControlComponent
+33. Create single field ngForm in FormControlComponent
+35. Import `ReactiveFormsModule` into `app.module`, place into `imports` `@AppModule`
+36. Import `FormGroup, FormBuilder` into `FormBuilderComponent`
+37.
