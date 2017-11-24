@@ -170,18 +170,19 @@ constructor(private router: Router) {
 24. Add `routerLink` into `app.component.html`
 ```html
 <li class="list-group-item"><a [routerLink]="['/directives']">Directives</a></li>
-<li class="list-group-item"><a [routerLink]="['/content_projection']">Content-Projection</a></li>
 <li class="list-group-item"><a [routerLink]="['/form-control']">Form Control</a></li>
-<li class="list-group-item"><a [routerLink]="['/form-builder']">Form: Builder</a></li>
+<li class="list-group-item"><a [routerLink]="['/form-builder']">Form Builder</a></li>
 <li class="list-group-item"><a [routerLink]="['/custom_validation']">Custom Validation</a></li>
 <li class="list-group-item"><a [routerLink]="['/dependency_injection']">Dependency Injection</a></li>
 <li class="list-group-item"><a [routerLink]="['/param_routing']">Param Routing</a></li>
 <li class="list-group-item"><a [routerLink]="['/input_output']">Input-Output</a></li>
 <li class="list-group-item"><a [routerLink]="['/http']">HTTP</a></li>
 <li class="list-group-item"><a [routerLink]="['/lifecycle']">Lifecycle</a></li>
+<li class="list-group-item"><a [routerLink]="['/content_projection']">Content-Projection</a></li>
 <li class="list-group-item"><a [routerLink]="['/misc']">Misc</a></li>
 ```
 25. Add Router-Outlet to `app.component.html`
+33. `DirectivesComponent:`
 26. Utilize `*ngIf` in DirectivesComponent
 27. Utilize `*ngFor` in DirectivesComponent
 28. Utilize `*ngSwitch` in DirectivesComponent
@@ -189,8 +190,46 @@ constructor(private router: Router) {
 30. Utilize `[style]` in DirectivesComponent
 31. Utilize `ngClass` in DirectivesComponent
 32. Utilize `ngNonBindable` in DirectivesComponent
+33. `FormControlComponent:`
 32. Import `FormsModule` into FormControlComponent
 33. Create single field ngForm in FormControlComponent
+33. `FormBuilderComponent:`
 35. Import `ReactiveFormsModule` into `app.module`, place into `imports` `@AppModule`
 36. Import `FormGroup, FormBuilder` into `FormBuilderComponent`
-37.
+37. Create form using FormBuilder that contains 4 different data types in `FormBuilderComponent`
+37. `CustomValidationComponent:`
+38. Import modules to do validation with `CustomValidationComponent`
+```javascript
+import { FormBuilder, FormGroup, AbstractControl, Validators, FormControl } from '@angular/forms';
+```
+39. Run form validation, field validation, and custom validation of field on `CustomValidationComponent`
+40. `DependencyInjectionComponent:`
+41. Inject the three services and display values contained within them
+42. `ParamRoutingComponent`
+43. Import ActivatedRoute and Router to `ParamRoutingComponent`
+```javascript
+import { ActivatedRoute, Router} from '@angular/router';
+```
+44. Create app module for Param Routing
+45. Import Angular Modules to `param-routing.module.ts`
+```javascript
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  RouterModule,
+  ActivatedRoute,
+  Router,
+  Routes
+} from '@angular/router';
+```
+46. Generate two sub components for routing purposes
+> `ng generate component param-routing/main-page`
+> `ng generate component param-routing/param-view`
+46. Create the routes for the param-routing module
+```javascript
+export const routes: Routes = [
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'main', component: MainPageComponent },
+  { path: ':id', component: ParamViewComponent },
+];
+```

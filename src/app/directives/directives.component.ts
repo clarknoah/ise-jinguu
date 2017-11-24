@@ -14,7 +14,7 @@ export class DirectivesComponent implements OnInit {
   color: string;
   ngStyle_obj: any;
   ngClass_obj: any;
-
+  ngFor_obj: any;
   constructor() {
     this.ngIf_boolean = false;
     this.color = "red";
@@ -23,6 +23,11 @@ export class DirectivesComponent implements OnInit {
       "Leah",
       "AJ"
     ];
+    this.ngFor_obj = {
+      noah: "Noah",
+      leah: "Leah",
+      hannah: "Hannah"
+    };
     this.ngSwitch_var = "";
     this.ngStyle_font=12;
     this.ngStyle_obj = {

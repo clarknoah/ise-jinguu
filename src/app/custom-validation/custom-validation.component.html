@@ -2,12 +2,21 @@
   <div class="form-group">
     <label for="">Normal Validation</label>
     <input formControlName="normalValidation" type="text"  value="">
+    <div *ngIf="!norm.valid" class="">
+      Normal Field Not Valid
+    </div>
   </div>
   <div class="form-group">
     <label for="">Custom Validation</label>
     <input formControlName="customValidation" type="text"  value="">
+    <div *ngIf="!cust.valid" class="">
+      Custom field must say "yolo"
+    </div>
   </div>
   <div *ngIf="!iseForm.valid" class="">
-
+    Form Not Valid
+  </div>
+  <div *ngIf="iseForm.valid" class="">
+    <button type="submit" name="button">Submit</button>
   </div>
 </form>

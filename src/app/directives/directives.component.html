@@ -11,6 +11,7 @@
     <h4 class="card-title">*ngFor</h4>
     <button class="btn btn-primary" (click)="ngFor_array.push('New Name')">Add Name</button>
     <p *ngFor="let name of ngFor_array; let ind = index">{{name}}'s index: {{ind}}</p>
+    <pre *ngFor="let key of ngFor_obj; let ind = index">{{ind}}: {{key}}</pre>
   </div>
 </div>
 

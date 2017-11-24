@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
 export class SingletonService {
 
   storedArray: Array<string>;
-  constructor() { }
+  constructor() {
+    this.storedArray = [];
+  }
 
-  appendStringToArray(inputArray: Array<string>): void{
-    this.storedArray = inputArray;
-    var newString = "This is a Test String to Validate Ise-Jinju Singleton Service";
-    this.storedArray.push(newString);
+  appendStringToArray(inputString: string): void{
+    this.storedArray.push(inputString);
   }
 
 }

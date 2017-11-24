@@ -34,6 +34,11 @@ export function loadFactory(){
   return new FactoryService();
 }
 
+import {
+  routes as childRoutes,
+  ProductsModule
+} from './param-routing/param-routing.module';
+
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: IseJinguComponent},
@@ -68,7 +73,9 @@ const routes: Routes = [
     HttpComponent,
     LifecycleComponent,
     MiscComponent,
-    IseJinguComponent
+    IseJinguComponent,
+    MainPageComponent,
+    ParamViewComponent
   ],
   imports: [
     BrowserModule,
