@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-output.component.css']
 })
 export class InputOutputComponent implements OnInit {
-
-  constructor() { }
+  initial_array: Array<string>;
+  constructor() {
+    this.initial_array = ['Noah', 'Leah', 'Hannah'];
+   }
 
   ngOnInit() {
   }

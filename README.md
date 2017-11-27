@@ -31,7 +31,7 @@ Run `ng github-pages:deploy` to deploy to GitHub Pages.
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 
-## Current Checklist (CAO 14Nov17)
+## Current Checklist (CAO 27Nov17)
 
 1. generate App
 > `ng new ise-jingu`
@@ -210,6 +210,9 @@ import { FormBuilder, FormGroup, AbstractControl, Validators, FormControl } from
 ```javascript
 import { ActivatedRoute, Router} from '@angular/router';
 ```
+44. Generate two sub components for routing purposes
+> `ng generate component param-routing/main-page`
+> `ng generate component param-routing/param-view`
 44. Create app module for Param Routing
 45. Import Angular Modules to `param-routing.module.ts`
 ```javascript
@@ -221,10 +224,30 @@ import {
   Router,
   Routes
 } from '@angular/router';
+
+
+import { MainPageComponent } from './main-page/main-page.component';
+import { ParamViewComponent } from './param-view/param-view.component';
+
+
+@NgModule({
+  declarations: [
+    ParamRoutingComponent,
+    MainPageComponent,
+    ParamViewComponent
+  ],
+  exports: [
+    ParamRoutingComponent,
+  MainPageComponent,
+    ParamViewComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule
+  ]
+})
+export class ParamRoutingModule { }
 ```
-46. Generate two sub components for routing purposes
-> `ng generate component param-routing/main-page`
-> `ng generate component param-routing/param-view`
 46. Create the routes for the param-routing module
 ```javascript
 export const routes: Routes = [
@@ -233,3 +256,19 @@ export const routes: Routes = [
   { path: ':id', component: ParamViewComponent },
 ];
 ```
+47. Import `param-routing.module to app.module` and the routes
+```javascript
+import {
+  routes as childRoutes,
+  ParamRoutingModule
+} from './param-routing/param-routing.module';
+```
+48. Import Router and ActivatedRoute Class into `param-routing.component.ts`
+49. Create `routerLink` links in `param-routing.component.html`
+49. Create dom that accepts a string input and runs a `goToPath` function to route with that param
+50. Add the ActivatedRoute to the `ParamViewComponent`, and subscribe to the ID parameter and display it in dom
+51. `InputOutputComponent`
+52. Create two sub components io-one and io-two
+> `ng generate component input-output/io-one`
+> `ng generate component input-output/io-two`
+53. 

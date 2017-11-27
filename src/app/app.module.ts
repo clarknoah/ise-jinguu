@@ -20,7 +20,6 @@ import { HttpComponent } from './http/http.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { MiscComponent } from './misc/misc.component';
 import { IseJinguComponent} from './ise-jingu/ise-jingu.component';
-
 //services
 import {FactoryService} from './service/factory.service';
 import {SingletonService} from './service/singleton.service';
@@ -36,8 +35,10 @@ export function loadFactory(){
 
 import {
   routes as childRoutes,
-  ProductsModule
+  ParamRoutingModule
 } from './param-routing/param-routing.module';
+import { IoOneComponent } from './input-output/io-one/io-one.component';
+import { IoTwoComponent } from './input-output/io-two/io-two.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -49,7 +50,7 @@ const routes: Routes = [
   {path: 'form-two-way-binding', component: FormTwoWayBindingComponent},
   {path: 'custom_validation', component: CustomValidationComponent},
   {path: 'dependency_injection', component: DependencyInjectionComponent},
-  {path: 'param_routing', component: ParamRoutingComponent},
+  {path: 'param_routing', component: ParamRoutingComponent, children: childRoutes},
   {path: 'input_output', component: InputOutputComponent},
   {path: 'http', component: HttpComponent},
   {path: 'lifecycle', component: LifecycleComponent},
@@ -74,8 +75,8 @@ const routes: Routes = [
     LifecycleComponent,
     MiscComponent,
     IseJinguComponent,
-    MainPageComponent,
-    ParamViewComponent
+    IoOneComponent,
+    IoTwoComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +84,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ParamRoutingModule
   ],
   providers: [
     LoggedInGuard,
