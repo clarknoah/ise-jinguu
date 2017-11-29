@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-projection.component.css']
 })
 export class ContentProjectionComponent implements OnInit {
-
+//  @Input() message: String;
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }

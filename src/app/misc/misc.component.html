@@ -1,3 +1,21 @@
-<p>
-  misc works!
-</p>
+<h1>Observable</h1>
+<input (keydown)="runThing(text_field)"
+placeholder="trigger is abc"
+type="text" name="" value="" [(ngModel)]="text_field">
+
+<h1>Element Ref</h1>
+<h6>{{text_content}}</h6>
+
+<pre></pre>
+
+<h1>$Event Watching</h1>
+<button (click)="eventWatch($event)"
+name="button">Log Event!</button>
+
+<h1>key Value Change </h1>
+<button (click)="dif.name=!dif" name="button">Toogle Boolean</button>
+
+<h1>Iterable Change</h1>
+<button (click)="addToArray()"
+name="button">Add to Array</button>
+<pre>{{array_fun}}</pre>

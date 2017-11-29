@@ -2,3 +2,23 @@
 <p *ngFor="let name of initial_array">
   {{name}}
 </p>
+<h4>IO-One</h4>
+<io-one [first_array]="initial_array"
+  (editted_array)="editted_array($event)">
+</io-one>
+
+<div class="" *ngIf="io_one_array">
+  <h1>Output One</h1>
+  <p>{{io_one_array}}</p>
+</div>
+
+
+<io-two *ngIf="io_one_array"
+  [first_array]="io_one_array"
+  (editted_array2)="editted_two($event)"
+></io-two>
+
+<div class="" *ngIf="io_two_array">
+  <h1>Output Two</h1>
+  <p>{{io_two_array}}</p>
+</div>

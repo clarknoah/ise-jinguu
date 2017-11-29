@@ -271,4 +271,52 @@ import {
 52. Create two sub components io-one and io-two
 > `ng generate component input-output/io-one`
 > `ng generate component input-output/io-two`
-53. 
+53. Create two event listener functions in the parent component to map to children io and visualize changes to the variable in parent
+54.` HttpComponent `
+55. Import HTTP Modules into `http.component`
+```javascript
+import { HttpModule, Http, Response, RequestOptions, Headers} from '@angular/http';
+```
+56. Add http get request and display the value of it
+```javascript
+constructor(private http: Http) {
+  this.http.request('http://jsonplaceholder.typicode.com/posts/1')
+  .subscribe((res:Response)=>{
+    this.display_value = res.json().title;
+  })
+ }
+ ```
+ 57. `Lifecycle`
+ 58. Create a sub lifecycle component
+ > `ng generate component lifecycle/main-lifecycle`
+ 59. Import lifecycle hook classes to `main-lifecycle`
+```javascript
+import { Component,
+  OnInit,
+  OnDestroy,
+  OnChanges,
+  SimpleChange,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  Input} from '@angular/core';
+  ```
+  60. Implement all hooks
+  61. `ContentProjectionComponent`
+  62. Create a directive within contentProjection
+  > `ng generate directive content-projection/popup`
+  63. Import HostListener and Input to `popup.directive`
+  ```javascript
+  import { Directive, ElementRef, Input , HostListener} from '@angular/core';
+```
+64. UTilize HostListener and ElementRef
+65. Utilize exportAs to remotely call popup
+66. create component for content projection
+> `ng generate component content-projection/content`
+67. Input ng-content into `content.component`
+```html
+<h1>{{content_title}}</h1>
+<pre><ng-content></ng-content></pre>
+```

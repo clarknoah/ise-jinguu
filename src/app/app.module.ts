@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 // Components and Directives
 import { AppComponent } from './app.component';
-import { PopupDirective } from './popup.directive';
 import { ContentProjectionComponent } from './content-projection/content-projection.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { FormControlComponent } from './form-control/form-control.component';
@@ -39,6 +38,9 @@ import {
 } from './param-routing/param-routing.module';
 import { IoOneComponent } from './input-output/io-one/io-one.component';
 import { IoTwoComponent } from './input-output/io-two/io-two.component';
+import { MainLifecycleComponent } from './lifecycle/main-lifecycle/main-lifecycle.component';
+import { PopupDirective } from './content-projection/popup.directive';
+import { ContentComponent } from './content-projection/content/content.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -76,7 +78,10 @@ const routes: Routes = [
     MiscComponent,
     IseJinguComponent,
     IoOneComponent,
-    IoTwoComponent
+    IoTwoComponent,
+    MainLifecycleComponent,
+    PopupDirective,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

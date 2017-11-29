@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[popup]'
+  selector: '[popup]',
+  exportAs:'popup'
 })
 export class PopupDirective {
 

@@ -1,3 +1,19 @@
 <p>
   content-projection works!
 </p>
+<button
+  (click)="popup1.displayMessage()"
+  name="button">Display Message</button>
+<p
+  popup
+  [message]="'I Love Pie'" #popup2="popup">
+  This should use the content-Projection directive
+</p>
+
+<p [message]="'different message'"
+  popup
+  #popup1="popup">Test 1</p>
+
+  <content [content_title]="'Title!'">
+    This is content!
+  </content>
