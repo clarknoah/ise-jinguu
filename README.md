@@ -320,3 +320,12 @@ import { Component,
 <h1>{{content_title}}</h1>
 <pre><ng-content></ng-content></pre>
 ```
+68. `MiscComponent`
+69. Import Class required for component
+```javascript
+import { Component, OnInit,
+  IterableDiffers, KeyValueDiffers, ElementRef,
+   DoCheck, EventEmitter, AfterContentInit} from '@angular/core';
+import { Observable} from 'rxjs';
+```
+70. Type in code required to do elementRef dom manipulation, $event, and Differs (with ngDoCheck)
