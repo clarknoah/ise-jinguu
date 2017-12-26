@@ -36,17 +36,14 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 1. generate App
 > `ng new ise-jingu`
 1. Import bootstrap reflect-metadata font-awesome
-> `npm install --save zone reflect-metadata font-awesome bootstrap@4.0.0-beta.2 jquery@1.9.1 popper.js@^1.12.3`
+> `8`
 2. Remove `app` prefix from `angular-cli.json`
+2. Add bootstrap css and js dependencies to `angular-cli.json`
 2. generate Factory Service
 > `ng generate service service/factory`
 3. Program service and create function that accepts an array, appends it, and stores it.
 3. Inject factory into `app.module`
-3. generate Singleton Service
-> `ng generate service service/singleton`
-4. Program service and create a funciton that accepts an array and appends it, and stores it.
-5. import and Inject singleton into `app.module`
-5. Create export function for `useFactory` key
+3. Create export function for `useFactory` key
 ```javascript
 export function loadFactory(){
     return new FactoryService();
@@ -56,6 +53,10 @@ import = {
     useFactory: loadFactory
 };
 ```
+3. generate Singleton Service
+> `ng generate service service/singleton`
+4. Program service and create a funciton that accepts an array and appends it, and stores it.
+5. import and Inject singleton into `app.module`
 6. generate variableService that contains a single string value
 7. import and Inject variableService into `app.module`
 8. generate AuthService
@@ -75,8 +76,8 @@ import = {
 > `ng generate component form-control`
 12. generate FormBuilderComponent
 > `ng generate component form-builder`
-14. generate CustomValidationComponent
-> `ng generate component custom-validation`
+14. generate ValidationComponent
+> `ng generate component validation`
 15. generate DependencyInjectionComponent
 > `ng generate component dependency-injection`
 16. generate ParamRoutingComponent
@@ -137,10 +138,10 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: IseJinguComponent},
   {path: 'content_projection', component: ContentProjectionComponent},
-  {path: 'directives', component: DirectivesComponent, canActivate: {LoggedInGuard}},
+  {path: 'directives', component: DirectivesComponent, canActivate: [LoggedInGuard]},
   {path: 'form-control', component: FormControlComponent},
   {path: 'form-builder', component: FormBuilderComponent},
-  {path: 'custom_validation', component: CustomValidationComponent},
+  {path: 'validation', component: CustomValidationComponent},
   {path: 'dependency_injection', component: DependencyInjectionComponent},
   {path: 'param_routing', component: ParamRoutingComponent},
   {path: 'input_output', component: InputOutputComponent},
@@ -172,7 +173,7 @@ constructor(private router: Router) {
 <li class="list-group-item"><a [routerLink]="['/directives']">Directives</a></li>
 <li class="list-group-item"><a [routerLink]="['/form-control']">Form Control</a></li>
 <li class="list-group-item"><a [routerLink]="['/form-builder']">Form Builder</a></li>
-<li class="list-group-item"><a [routerLink]="['/custom_validation']">Custom Validation</a></li>
+<li class="list-group-item"><a [routerLink]="['/validation']">Validation</a></li>
 <li class="list-group-item"><a [routerLink]="['/dependency_injection']">Dependency Injection</a></li>
 <li class="list-group-item"><a [routerLink]="['/param_routing']">Param Routing</a></li>
 <li class="list-group-item"><a [routerLink]="['/input_output']">Input-Output</a></li>
@@ -183,6 +184,7 @@ constructor(private router: Router) {
 ```
 25. Add Router-Outlet to `app.component.html`
 33. `DirectivesComponent:`
+26. Add formsModule to app.module.ts to use ngModel
 26. Utilize `*ngIf` in DirectivesComponent
 27. Utilize `*ngFor` in DirectivesComponent
 28. Utilize `*ngSwitch` in DirectivesComponent
@@ -191,18 +193,19 @@ constructor(private router: Router) {
 31. Utilize `ngClass` in DirectivesComponent
 32. Utilize `ngNonBindable` in DirectivesComponent
 33. `FormControlComponent:`
+32. Import `ReactiveFormsModule` into `app.module.ts`
 32. Import `FormsModule` into FormControlComponent
 33. Create single field ngForm in FormControlComponent
 33. `FormBuilderComponent:`
-35. Import `ReactiveFormsModule` into `app.module`, place into `imports` `@AppModule`
 36. Import `FormGroup, FormBuilder` into `FormBuilderComponent`
-37. Create form using FormBuilder that contains 4 different data types in `FormBuilderComponent`
-37. `CustomValidationComponent:`
-38. Import modules to do validation with `CustomValidationComponent`
 ```javascript
 import { FormBuilder, FormGroup, AbstractControl, Validators, FormControl } from '@angular/forms';
 ```
-39. Run form validation, field validation, and custom validation of field on `CustomValidationComponent`
+37. Create form using FormBuilder that contains 4 different data types in `FormBuilderComponent`
+38. `ValidationComponent`
+38. Create a form which implements general validation
+39. Createa a custom validator of a string
+39. Create a custom validator for a number
 40. `DependencyInjectionComponent:`
 41. Inject the three services and display values contained within them
 42. `ParamRoutingComponent`
@@ -273,7 +276,8 @@ import {
 > `ng generate component input-output/io-two`
 53. Create two event listener functions in the parent component to map to children io and visualize changes to the variable in parent
 54.` HttpComponent `
-55. Import HTTP Modules into `http.component`
+55. Import HttpModule to the `app.module` and place withing `imports` within decorator
+55. Import HTTP Modules needed into `http.component`
 ```javascript
 import { HttpModule, Http, Response, RequestOptions, Headers} from '@angular/http';
 ```
